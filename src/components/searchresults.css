@@ -1,0 +1,29 @@
+.searchResults {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    height: 500px;
+    overflow-y: visible;
+    text-align: left;
+  }
+  
+  .searchResults li {
+    background-color: #263238;
+    transition: all 0.35s ease-out;
+  }
+  
+  .searchResults li:hover {
+    background-color: #000;
+  }
+  
+  .searchResults a {
+    color: #fff;
+    display: flex;
+    padding: 20px 20px;
+  }
+  
+  .moviePoster {
+    width: 100px;
+    margin-right: 20px;
+    align-self: center;
+  }

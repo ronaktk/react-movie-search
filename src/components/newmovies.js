@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import {Link} from 'react-router-dom';
+import './newmovies.css';
 class NewMovies extends Component {
 
     constructor(props) {
@@ -24,15 +25,29 @@ class NewMovies extends Component {
                 this.setState({movies: movies});
             });
         })
+        .catch(error => {
+            console.log('Fetch Error: ', error);
+        })
     }
     
     render() {
         return(
-            <div>
+            <section>
                 <h2>Latest Movies</h2>
-                <h3>Movie Name</h3>
-                <p>Movie Description</p>
-            </div>
+                <div className="newMovies">
+                    {this.state.movies.map((movie, index) => {
+                        return(
+                            <Link to='/' key={index} className="movieLink">
+                                <img src={`https://image.tmdb.org/t/p/w200/${this.state.movies[index].poster_path}`} alt="movie poster"/>
+                                <div className="movieInfo">
+                                    <h3>{this.state.movies[index].title}</h3>
+                                    <p>{this.state.movies[index].release_date}</p>
+                                </div>
+                            </Link>
+                        )
+                    })}
+                </div>
+            </section>
         );
     }
 }

@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import Header from './components/header';
-import Search from './components/search';
-import './App.css';
-import NewMovies from './components/newmovies';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import Home from './home';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Search />
-        <NewMovies />
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route path={'/'} component={Home} />}
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
